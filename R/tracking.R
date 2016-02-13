@@ -9,6 +9,7 @@ tracking <- function(ip, courseName, lessonName, userName, version, type) {
   tryCatch({
     res <- POST(url = sprintf("http://%s:3000/api/status", ip), body = body, encode = "json")
     stop_for_status(res)
+    message(sprintf("Your status has beed updated to tracking server"))
   }, error = function(e) {
     warning(sprintf("Failed to communicate with tracking server. The error message is: (%s)", conditionMessage(e)))
   })
