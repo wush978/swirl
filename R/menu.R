@@ -305,6 +305,14 @@ loadLesson.default <- function(e, courseU, lesson){
   # Attached class to content based on file extension
   class(dataName) <- get_content_class(dataName)
   
+  # Send a request to the tracking server if there is one
+  local({
+    serverIP <- getOption("SWIRL_TRACKING_SERVER_IP", NULL)
+    if (!is.null(serverIP)) {
+      courseVersion <- getOption("SWIRL_COURSE_VERSION", "")
+      enter_lesson(serverIP, courseU, lesson, e$usr, courseVersion)
+    }
+  })
   # Parse content, returning object of class "lesson"
   return(parse_content(dataName, e))
 }
