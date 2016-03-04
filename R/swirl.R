@@ -445,6 +445,16 @@ resume.default <- function(e, ...){
       clearCustomTests()
       # Let user know lesson is complete
       swirl_out("You've reached the end of this lesson! Returning to the main menu...")
+      local({
+        serverIP <- getOption("SWIRL_TRACKING_SERVER_IP", NULL)
+        if (!is.null(serverIP)) {
+          courseVersion <- getOption("SWIRL_COURSE_VERSION", "")
+          .path <- tail(strsplit(e$path, "/")[[1]], 2)
+          courseU <- .path[1]
+          lesson <- .path[2]
+          pass_lesson(serverIP, courseU, lesson, e$usr, courseVersion)
+        }
+      })
       # let the user select another course lesson
       temp <- mainMenu(e)
       # if menu returns FALSE, user wants to quit.
