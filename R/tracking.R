@@ -1,4 +1,4 @@
-.tracking_env <- environment()
+.tracking_env <- new.env(parent=emptyenv())
 
 #'@importFrom httr POST stop_for_status
 tracking <- function(ip, courseName, lessonName, userName, version, type) {
@@ -10,7 +10,8 @@ tracking <- function(ip, courseName, lessonName, userName, version, type) {
   )
   tryCatch({
     # get the last vailable ip or pass
-    last_ip <- unique(append(.tracking_env[[ip]], strsplit(ip, ",")[[1]]))
+    ips <- strsplit(ip, ",")[[1]]
+    last_ip <- unique(append(.tracking_env[[ip]], sample(ips, length(ips))))
     is_tracked <- FALSE
     .tracking_env$error_msg <- c()
     for(current_ip in last_ip) {
