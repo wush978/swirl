@@ -1,6 +1,6 @@
 .tracking_env <- new.env(parent=emptyenv())
 
-#'@importFrom httr POST stop_for_status
+#'@importFrom httr POST stop_for_status content
 tracking <- function(ip, courseName, lessonName, userName, version, type) {
   body <- list(
     user_id = userName,
@@ -39,3 +39,25 @@ tracking <- function(ip, courseName, lessonName, userName, version, type) {
 enter_lesson <- function(ip, courseName, lessonName, userName, version) tracking(ip, courseName, lessonName, userName, version, 0)
 
 pass_lesson <- function(ip, courseName, lessonName, userName, version) tracking(ip, courseName, lessonName, userName, version, 1)
+
+#'@export
+query_user_id <- function(user_id) {
+  serverIP <- getOption("SWIRL_TRACKING_SERVER_IP", NULL)
+  if (!is.null(serverIP)) {
+    tryCatch({
+      ips <- strsplit(serverIP, ",")[[1]]
+      urls <- sprintf("http://%s:3000/api/getRecordsByUserId", ips)
+      body <- list(user_id = user_id)
+      records <- lapply(urls, function(url) {
+        res <- POST(url = url, body = body, encode = "json")
+        stop_for_status(res)
+        content(res)
+      })
+      tmp <- Filter(function(x) "type" %in% names(x), unlist(records, recursive = FALSE))
+      tmp <- Filter(function(x) x$type == 1, tmp)
+      sapply(tmp, "[[", "course")
+    }, error = function(e) {
+      stop(sprintf("The connection to the tracking server is down. Please report the following message to the chatroom: %s", conditionMessage(e)))
+    })
+  } else stop("The ip of the tracking server is empty. You need to enter the course first.")
+}
