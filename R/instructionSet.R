@@ -191,22 +191,27 @@ testResponse.default <- function(current.row, e){
 }
 
 testMe <- function(keyphrase, e){
+  tryCatch({
+    oldcourse <- attr(e$les, "course_name") %in%
+      c("Data Analysis", "Mathematical Biostatistics Boot Camp",
+        "Open Intro")
+  
+    if(oldcourse){
+      # Use old test syntax
+      # Add a new class attribute to the keyphrase using
+      # the substring left of its first "=".
+      attr(keyphrase, "class") <- c(class(keyphrase),
+                                    strsplit(keyphrase, "=")[[1]][1])
+      return(runTest(keyphrase, e))
+    } else {
+      # Use new test syntax
+      return(eval(parse(text=keyphrase)))
+    }
+  }, error = function(e) {
+    message(conditionMessage(e))
+    FALSE
+  })
   # patch to accommodate old-style tests
-  oldcourse <- attr(e$les, "course_name") %in%
-    c("Data Analysis", "Mathematical Biostatistics Boot Camp",
-      "Open Intro")
-
-  if(oldcourse){
-    # Use old test syntax
-    # Add a new class attribute to the keyphrase using
-    # the substring left of its first "=".
-    attr(keyphrase, "class") <- c(class(keyphrase),
-                                  strsplit(keyphrase, "=")[[1]][1])
-    return(runTest(keyphrase, e))
-  } else {
-    # Use new test syntax
-    return(eval(parse(text=keyphrase)))
-  }
 }
 
 # CUSTOM TEST SUPPORT. An environment for custom tests is inserted
