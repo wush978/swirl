@@ -131,7 +131,7 @@ waitUser.script <- function(current.row, e){
   }
   # Have user edit the copy. This will reopen the file if 
   # accidentally closed
-  file.edit(e$script_temp_path)
+  get("file.edit", envir = globalenv())(e$script_temp_path)
   # Give instructions
   # swirl_out("INSTRUCTIONS: Edit the script and experiment in the console as much as you want. When you are ready to move on, SAVE YOUR SCRIPT and type submit() at the prompt. The script will remain open until you close it.",
   #          skip_before = FALSE, skip_after = TRUE)

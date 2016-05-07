@@ -302,7 +302,7 @@ resume.default <- function(e, ...){
         # Inform the user and open the correct script
         swirl_out(s()%N%"I just sourced the following script, which demonstrates one possible solution.",
                   skip_after=TRUE)
-        file.edit(correct_script_path)
+        get("file.edit", envir = globalenv())(correct_script_path)
         readline(s()%N%"Press Enter when you are ready to continue...")
       }
       
