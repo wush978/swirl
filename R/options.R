@@ -53,3 +53,5 @@ swirl_options <- function(...){
     options(...)
   }
 }
+
+get_swirl_option <- swirl_options
