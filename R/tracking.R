@@ -11,12 +11,13 @@ tracking <- function(ip, courseName, lessonName, userName, version, type) {
   tryCatch({
     # get the last vailable ip or pass
     ips <- strsplit(ip, ",")[[1]]
+    ips <- c(ips, paste(ips, "3000", sep = ":"))
     last_ip <- unique(append(.tracking_env[[ip]], sample(ips, length(ips))))
     is_tracked <- FALSE
     .tracking_env$error_msg <- c()
     for(current_ip in last_ip) {
       tryCatch({
-        res <- POST(url = sprintf("http://%s:3000/api/status", current_ip), body = body, encode = "json")
+        res <- POST(url = sprintf("http://%s/api/status", current_ip), body = body, encode = "json")
         stop_for_status(res)
         is_tracked <- TRUE
         break
@@ -46,7 +47,7 @@ query_user_id <- function(user_id) {
   if (!is.null(serverIP)) {
     tryCatch({
       ips <- strsplit(serverIP, ",")[[1]]
-      urls <- sprintf("http://%s:3000/api/getRecordsByUserId", ips)
+      urls <- sprintf("http://%s/api/getRecordsByUserId", ips)
       body <- list(user_id = user_id)
       records <- lapply(urls, function(url) {
         res <- POST(url = url, body = body, encode = "json")
