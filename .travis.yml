@@ -7,9 +7,7 @@ r:
   - release
   - devel
 env:
-  matrix:
-    - PKG_REPOS="http://cloud.r-project.org"
-    - PKG_REPOS="http://wush978.github.io/R"
+  - PKG_REPOS="http://wush978.github.io/R"
 
 before_install:
   - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))\n" > ~/.Rprofile
