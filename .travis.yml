@@ -14,8 +14,9 @@ before_install:
   - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
 
 script:
-  - R CMD INSTALL .
-  - R CMD check .
+  - R CMD build .
+  - ls -d1 swirl*tar.gz | xargs R CMD check 
+  - ls -d1 swirl*tar.gz | xargs R CMD INSTALL
   - git clone https://github.com/wush978/DataScienceAndR.git -b course /tmp/course
   - cd /tmp/course && Rscript .test_course.R push
 
