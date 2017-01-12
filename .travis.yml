@@ -10,7 +10,7 @@ env:
   - PKG_REPOS="http://wush978.github.io/R"
 
 before_install:
-  - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))\n" > ~/.Rprofile
+  - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
 
 after_install:
   - R CMD INSTALL .
