@@ -26,9 +26,6 @@ addons:
     - libcurl4-openssl-dev
     - libxml2-dev
 
-cran:
-  - http://cloud.r-project.org
-
 notifications:
   webhooks:
     urls:
