@@ -8,12 +8,14 @@ r:
   - devel
 env:
   - PKG_REPOS="http://wush978.github.io/R"
+  - PKG_REPOS="https://cloud.r-project.org"
 
 before_install:
   - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
 
 script:
   - R CMD INSTALL .
+  - R CMD check .
   - git clone https://github.com/wush978/DataScienceAndR.git -b course /tmp/course
   - cd /tmp/course && Rscript .test_course.R push
 
