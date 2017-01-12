@@ -12,10 +12,8 @@ env:
 before_install:
   - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
 
-after_install:
-  - R CMD INSTALL .
-
 script:
+  - R CMD INSTALL .
   - git clone https://github.com/wush978/DataScienceAndR.git -b course /tmp/course
   - cd /tmp/course && Rscript .test_course.R push
 
