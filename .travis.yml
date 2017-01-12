@@ -19,8 +19,11 @@ addons:
     - libxml2-dev
 
 cran:
-  - http://wush978.github.io/R
   - http://cloud.r-project.org
+
+repos:
+  CRAN: https://cloud.r-project.org
+  ropensci: http://packages.ropensci.org
 
 notifications:
   webhooks:
