@@ -6,6 +6,15 @@ r:
   - oldrel
   - release
   - devel
+env:
+  - CRAN="http://cloud.r-project.org"
+  - CRAN="http://wush978.github.io/R"
+
+before_install:
+  - echo "options(repos = c('CRAN' = Sys.getenv('CRAN')))\n" > ~/.Rprofile
+
+after_install:
+  - R CMD INSTALL .
 
 script:
   - git clone https://github.com/wush978/DataScienceAndR.git -b course /tmp/course
@@ -20,10 +29,6 @@ addons:
 
 cran:
   - http://cloud.r-project.org
-
-repos:
-  CRAN: https://cloud.r-project.org
-  ropensci: http://packages.ropensci.org
 
 notifications:
   webhooks:
