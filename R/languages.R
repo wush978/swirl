@@ -1,10 +1,10 @@
 swirl_language <- function(){
   lang <- getOption("swirl_language")
-  langs <- c("chinese_simplified", "english", "french", "german", "korean", 
+  langs <- c("chinese_traditional", "chinese_simplified", "english", "french", "german", "korean", 
              "spanish", "turkish")
   
   if(is.null(lang) || !(lang %in% langs)){
-    "english"
+    "chinese_traditional"
   } else {
     lang
   }
@@ -14,8 +14,8 @@ swirl_language <- function(){
 #' 
 #' Select a language for swirl's menus.
 #' @param language The language that swirl's menus will use.
-#' This must be one of the following values: \code{"chinese_simplified"}.
-#' \code{"english"}, \code{"french"}, \code{"german"},
+#' This must be one of the following values: \code{"chinese_traditional"},
+#'  \code{"chinese_simplified"}, \code{"english"}, \code{"french"}, \code{"german"},
 #' \code{"korean"}, \code{"spanish"}, or \code{"turkish"}.
 #' If \code{NULL} the user will be asked to choose a language
 #' interactively. The default value is \code{NULL}.
@@ -25,7 +25,7 @@ swirl_language <- function(){
 #' 
 #' @export
 select_language <- function(language = NULL, append_rprofile = FALSE){
-  langs <- c("chinese_simplified", "english", "french", "german", "korean", 
+  langs <- c("chinese_traditional", "chinese_simplified", "english", "french", "german", "korean", 
              "spanish", "turkish")
   if(is.null(language)){
     selection <- select.list(langs)
@@ -109,3 +109,9 @@ check_strings <- function(){
     }
   }
 }
+
+# by Wush: Load our chinese traditional language pack
+assign(
+  "chinese_traditional", 
+  yaml::yaml.load_file(system.file(file.path("language", "chinese_traditional.yaml"), package = "swirl"))
+)
