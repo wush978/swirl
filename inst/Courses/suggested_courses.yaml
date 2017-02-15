@@ -1,3 +1,7 @@
+- Course: DataScienceAndR
+  Description: R語言翻轉教室
+  Install: install_course_github("wush978", "DataScienceAndR", "course")
+
 - Course: R Programming
   Description: The basics of programming in R
   Install: install_course('R_Programming')
