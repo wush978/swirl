@@ -191,6 +191,9 @@ mainMenu.default <- function(e){
         }
       }
       e$pbar_seq <- seq(0, 1, length=nrow(e$les))
+      # More verbose logging with progress
+      e$log$progress_timestamp <- numeric(nrow(e$les))
+      e$log$restore_timestamp <- numeric(0)
       
       # expr, val, ok, and vis should have been set by the callback.
       # The lesson's current row - could start after 1 if in 'test' mode
@@ -358,6 +361,7 @@ restoreUserProgress.default <- function(e, selection){
   temp <- readRDS(file.path(e$udat, selection))
   # transfer its contents to e
   xfer(temp, e)
+  e$log$restore_timestamp <- c(e$log$restore_timestamp, as.numeric(Sys.time()))
   # Since loadDepencies will have worked once, we don't
   # check for failure here. Perhaps we should.
   loadDependencies(e$path)

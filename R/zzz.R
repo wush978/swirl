@@ -1,6 +1,7 @@
 .onAttach <- function(...) {
   if (interactive()) {
     .yesno <- function(prompt) {
+      if (Sys.getenv("SWIRL_DEV") == "TRUE") return(TRUE)
       is_done <- FALSE
       while(!is_done) {
         result <- readline(prompt)

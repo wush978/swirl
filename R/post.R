@@ -38,6 +38,7 @@ post_progress.default <- function(e) {
   cat("\n")
   setTxtProgressBar(e$pbar, e$pbar_seq[e$row])
   cat(sprintf(" (step: %d/%d)\n", e$row, nrow(e$les)))
+  e$log$progress_timestamp[e$row] <- as.numeric(Sys.time())
 }
 
 post_finished.default <- function(e) {
