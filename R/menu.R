@@ -184,7 +184,11 @@ mainMenu.default <- function(e){
       
       # Initialize the progress bar
       if(!is(e,"datacamp")) {
-        e$pbar <- txtProgressBar(style=3)
+        if (getOption("width") < 20) {
+          e$pbar <- txtProgressBar(style=3)
+        } else {
+          e$pbar <- txtProgressBar(style=3, width = getOption("width") - 20)
+        }
       }
       e$pbar_seq <- seq(0, 1, length=nrow(e$les))
       
