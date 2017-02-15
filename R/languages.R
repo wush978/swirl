@@ -1,10 +1,12 @@
-swirl_language <- function(){
+default <- new.env()
+default$lang <- "english"
+swirl_language <- function() {
   lang <- getOption("swirl_language")
   langs <- c("chinese_traditional", "chinese_simplified", "english", "french", "german", "korean", 
              "spanish", "turkish")
   
   if(is.null(lang) || !(lang %in% langs)){
-    "chinese_traditional"
+    default$lang
   } else {
     lang
   }
@@ -111,6 +113,7 @@ check_strings <- function(){
 }
 
 # by Wush: Load our chinese traditional language pack
+# The language pack is converted from chinese_simplified by opencc
 assign(
   "chinese_traditional", 
   yaml::yaml.load_file(system.file(file.path("language", "chinese_traditional.yaml"), package = "swirl"))

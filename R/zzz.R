@@ -1,4 +1,41 @@
 .onAttach <- function(...) {
+  if (interactive()) {
+    .yesno <- function(prompt) {
+      is_done <- FALSE
+      while(!is_done) {
+        result <- readline(prompt)
+        if (nchar(result) == 0) next
+        result <- switch(
+          tolower(substring(result, 1, 1)),
+          "y" = "y",
+          "n" = "n",
+          NA
+        )
+        if (!is.na(result)) is_done <- TRUE
+      }
+      result == "y"
+    }
+    is_chinese <- .yesno("Do you want to set the language to Chinese traditional?(y/n)")
+    if (is_chinese) {
+      make_pretty("I am going to adjust your locale settings.")
+      locale_cmd <- switch(.Platform$OS.type, 
+             "windows" = {
+               'Sys.setlocale(locale = "cht")'
+             },
+             "unix" = {
+               'Sys.setlocale(locale = "en_US.UTF-8")'
+             })
+      cat(sprintf("This is the suggested command: `%s`\n", locale_cmd))
+      cat(sprintf("It is recommended to adjust the locale for beginners.\n"))
+      cat(sprintf("If you cannot see any chinese, please visit <https://gitter.im/wush978/DataScienceAndR>.\n"))
+      is_adjust <- .yesno("Do you want me to adjust the locale for you? (y/n)")
+      if (is_adjust) {
+        eval(parse(text = locale_cmd))
+      }
+      default$lang <- "chinese_traditional"
+    }
+  }
+  
   if(length(ls(envir=globalenv())) > 0) {
     packageStartupMessage(
       make_pretty(s()%N%"Hi! I see that you have some variables saved in your",
