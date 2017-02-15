@@ -213,7 +213,7 @@ mainMenu.default <- function(e){
       e$playing <- FALSE
       
       # Create log
-      if(isTRUE(getOption("swirl_logging"))){
+      if(TRUE){
         e$log <- list(user = e$usr, 
                       course_name = attr(e$les,"course_name"),
                       lesson_name = attr(e$les,"lesson_name"),
