@@ -37,6 +37,7 @@ post_result.default <- function(e, passed, feedback, hint) {
 post_progress.default <- function(e) {
   cat("\n")
   setTxtProgressBar(e$pbar, e$pbar_seq[e$row])
+  cat(sprintf(" (step: %d/%d)\n", e$row, nrow(e$les)))
 }
 
 post_finished.default <- function(e) {
