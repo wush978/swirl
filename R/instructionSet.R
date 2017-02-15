@@ -150,7 +150,7 @@ waitUser.script <- function(current.row, e){
 testResponse <- function(current.row, e)UseMethod("testResponse")
 
 testResponse.default <- function(current.row, e){
-  if(isTRUE(getOption("swirl_logging"))){
+  if(TRUE){
     e$log$question_number <- c(e$log$question_number, e$row)
     e$log$attempt <- c(e$log$attempt, e$attempts)
     e$log$skipped <- c(e$log$skipped, e$skipped)
@@ -172,7 +172,7 @@ testResponse.default <- function(current.row, e){
   }
   correct <- !(FALSE %in% unlist(results))
   if(correct){
-    if(isTRUE(getOption("swirl_logging"))){
+    if(TRUE){
       e$log$correct <- c(e$log$correct, TRUE)
     }  
     
@@ -183,7 +183,7 @@ testResponse.default <- function(current.row, e){
     # Reset attempts counter, since correct
     e$attempts <- 1
   } else {
-    if(isTRUE(getOption("swirl_logging"))){
+    if(TRUE){
       e$log$correct <- c(e$log$correct, FALSE)
     }
     
