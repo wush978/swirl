@@ -121,11 +121,11 @@ OK. I'm opening the swirl courses web page in your browser.: 好的。我正在�
 ? Also, when you see 'ANSWER:', the R prompt (>), or when you are asked to select
   from a list, that means it's your turn to enter a response, then press Enter to
   continue.
-: 而且, 當您看到 'ANSWER:' 也就是R提示符 (>) 時， , 或者當要求您從列表中選擇時，這意味著輪到您輸入一個響應，並輸入回車繼續。
+: 而且, 當您看到 'ANSWER:' 也就是R提示符 (>) 時， , 或者當要求您從列表中選擇時，這意味著輪到您輸入Enter繼續。
 Continue.: 繼續。
 Proceed.: 接著做.
 Let's get going!: 讓我們保持前進!
-Select 1, 2, or 3 and press Enter: 選擇1，2，或者3 並按下回車
+Select 1, 2, or 3 and press Enter: 選擇1，2，或者3 並按下Enter
 ? You can exit swirl and return to the R prompt (>) at any time by pressing the Esc
   key. If you are already at the prompt, type bye() to exit and save your progress.
   When you exit properly, you'll see a short message letting know you've done so.
@@ -190,7 +190,7 @@ Returning to the main menu...: 返回主選單...
 Lesson complete! Exiting swirl now...: 本節課完成了！正在退出swirl!
 You've reached the end of this lesson! Returning to the main menu...: 你已經到達了本課程的結束！正在返回主選單...
 I just sourced the following script, which demonstrates one possible solution.: 我剛剛執行了下面的指令碼,它會演示一個可能的解決方案。
-Press Enter when you are ready to continue...: 當你準備繼續時輸入回車...
+Press Enter when you are ready to continue...: 當你準備繼續時輸入Enter...
 Hi! I see that you have some variables saved in your: 嗨! 我看到你有很多變數儲存在你的
 workspace. To keep things running smoothly, I recommend you clean up: workspace。 為了能夠順利進行，我推薦你清空workspace
 before starting swirl.: 在開始swirl前。
