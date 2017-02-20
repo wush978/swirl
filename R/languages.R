@@ -116,5 +116,12 @@ check_strings <- function(){
 # The language pack is converted from chinese_simplified by opencc
 assign(
   "chinese_traditional", 
-  yaml::yaml.load_file(system.file(file.path("language", "chinese_traditional.yaml"), package = "swirl"))
+  local({
+    lang <- yaml::yaml.load_file(system.file(file.path("language", "chinese_traditional.yaml"), package = "swirl"))
+    for(name in names(lang)) {
+      stopifnot(is.character(lang[[name]]))
+      Encoding(lang[[name]]) <- "UTF-8"
+    }
+    lang
+  })
 )

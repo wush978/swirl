@@ -70,11 +70,9 @@ Course not found!: 課程無法找到！
 All courses uninstalled successfully!: 所有的課程都解除安裝成功！
 No courses found!: 找不到課程！
 Argument 'multi' must be either TRUE or FALSE.: 參數 'multi' 必須是 TRUE 或 FALSE.
-Argument 'which_course' should only be specified when argument 'multi' is TRUE.: 參數
-  'which_course' 只在參數 'multi' 為 TRUE 的時候需要指定。
+Argument 'which_course' should only be specified when argument 'multi' is TRUE.: 參數 'which_course' 只在參數 'multi' 為 TRUE 的時候需要指定。
 'Course ': '課程 '
-' not in specified directory. Be careful, course names are case sensitive!':
-  ' 不在指定的目錄中。 請小心, 課程名字區分大小寫!': ~
+' not in specified directory. Be careful, course names are case sensitive!': ' 不在指定的目錄中。 請小心, 課程名字區分大小寫!'
 Course directory is too large to install: 課程目錄太大，無法安裝
 'ANSWER: ': 'ANSWER: '
 'Yes or No? ': '正確或錯誤？ '
