@@ -26,7 +26,8 @@ loadInstructions <- function(e, ...)UseMethod("loadInstructions")
 mainMenu.default <- function(e){
   # Welcome the user if necessary and set up progress tracking
   if(!exists("usr",e,inherits = FALSE)){
-    e$usr <- welcome(e)
+    e$userinfo <- welcome(e)
+    e$usr <- e$userinfo$usr
     udat <- file.path(progressDir(e), e$usr)
     if(!file.exists(udat)){
       housekeeping(e)
@@ -247,12 +248,25 @@ welcome.test <- function(e, ...){
 # Default version.
 #' @importFrom stringr str_detect str_trim
 welcome.default <- function(e, ...){
-  swirl_out(s()%N%"Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new, call yourself something unique.", skip_after=TRUE)
-  resp <- readline(s()%N%"What shall I call you? ")
-  while(str_detect(resp, '[[:punct:]]') || nchar(str_trim(resp)) < 1) {
-    swirl_out(s()%N%"Please don't use any quotes or other punctuation in your name.",
-              skip_after = TRUE)
-    resp <- readline(s()%N%"What shall I call you? ")
+  stopifnot(interactive())
+  done <- FALSE
+  while(!done) {
+    tryCatch({
+      swirl_out(s()%N%"Welcome to swirl! Please select where you want to sign in with.")
+      service <- select.list(c("Google", "Facebook", "Classroom"))
+      if (service == "Google") {
+        resp <- .google_oauth()
+        done <- TRUE
+      } else if (service == "Facebook") {
+        resp <- .facebook_oauth()
+        done <- TRUE
+      } else if (service == "Classroom") {
+        resp <- .classroom_auth()
+        done <- TRUE
+      }
+    }, error = function(e) {
+      swirl_out(sprintf("%s: %s", s()%N%"Error", s()%N%conditionMessage(e)))
+    })
   }
   return(resp)
 }
