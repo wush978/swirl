@@ -36,7 +36,6 @@ homepage for your Coursera course was: 您的Coursera課程主頁是：
 It looks like you entered a web address, which is not what I'm: 您似乎輸入了一個網址，這不是我
 looking for.: 所需要的。
 It looks like you entered a numeric ID, which is not what I'm: 您似乎是輸入了一個全是數字的ID，這不是我
-looking for.: 所需要的。
 It looks like you entered the Course ID that I used as an: 您似乎是輸入了範例中的 course ID，
 example, which is not what I'm looking for.: 這不是我所需要的。
 Instead, I need your Course ID, which is the last: 我需要您的 Course ID，它是
@@ -56,8 +55,7 @@ Course installation failed.: 課程安裝失敗。
 Argument 'course_name' must be surrounded by quotes (i.e. a character string)!: 參數'course_name' 必須包含在引號中（即為一個字元串）！
 Argument 'dev' must be either TRUE or FALSE!: 參數 'dev' 一定是 TRUE 或 FALSE ！
 Please enter a valid name for a mirror. ('github' or 'bitbucket'): 請輸入一個有效的映象名字 ('github'或'bitbucket')
-To access swirl courses in development on Bitbucket go to https://bitbucket.org/swirldevmirror/swirl_misc: 要在Bitbucket 中獲取開發中的 swirl 課程，
-請訪問 https://bitbucket.org/swirldevmirror/swirl_misc
+To access swirl courses in development on Bitbucket go to https://bitbucket.org/swirldevmirror/swirl_misc: 要在Bitbucket 中獲取開發中的 swirl 課程，請訪問 https://bitbucket.org/swirldevmirror/swirl_misc
 Course ': 課程 '
 ''' not found in course repository! ': ''' 不在課程庫中！ '
 Make sure you've got the name exactly right, then try again.: 請確認您輸入了正確的名字，然後重試。
