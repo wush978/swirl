@@ -1,129 +1,125 @@
-I just reset the script to its original state. If it doesn't refresh immediately, you may need to click on it.: 我剛剛初始化了指令碼。如果它沒有立即重新整理，您可能需要單擊它。
+I just reset the script to its original state. If it doesn't refresh immediately, you may need to click on it.: 我剛剛初始化了指令碼。如果它沒有立即重新整理，請點擊它手動整理。
 Sourcing your script...: 執行您的指令碼中...
-Entering play mode. Experiment as you please, then type nxt() when you are ready to resume the lesson.: 進入娛樂模式，按您自己的意願測試,
-  然後當您準備好回到課程中時輸入nxt()。
-This feature is not implemented yet for Swirl.: 這功能在Swirl中尚未實現
-That's not the expression I expected but it works.: 這不是我期望的表示式但是它能正常工作。
-The given range: 給定的範圍
-is not numeric.: 不是數字形式。
-I've executed the correct expression in case the result is needed in an upcoming question.: 我已經執行了正確的表示式因為一個即將來臨的問題需要它的結果
+Entering play mode. Experiment as you please, then type nxt() when you are ready to resume the lesson.: 進入娛樂模式，請隨意進行測試，當您準備好回到課程時請輸入nxt()。
+This feature is not implemented yet for Swirl.: Swirl中尚未完整具備此功能。
+That's not the expression I expected but it works.: 這不是預期的表示式，但是它可以正常運作。
+The given range: 給定的範圍。
+is not numeric.: 非數字形式。
+I've executed the correct expression in case the result is needed in an upcoming question.: 已經執行了正確的表示式，它的執行結果將為下一個問題做預備。
 does not exist.: 不存在。
-Must specify 'test_course' and 'test_lesson' to run in 'test' mode!: 在 'test' 模式下運行必須指定
-  'test_course' 和 'test_lesson' ！
+Must specify 'test_course' and 'test_lesson' to run in 'test' mode!: 在 'test' 模式下運行時必須指定'test_course' 和 'test_lesson'！
 Argument 'to' must be strictly greater than argument 'from'!: 參數 'to' 必須嚴格大於參數 'from'!
-Are you currently enrolled in the Coursera course associated with this lesson?: 您正在參與與這節課相關的Coursera課程嗎?
-Would you like me to notify Coursera that you've completed this lesson?: 您樂意我通知Coursera您已完成這節課了嗎？
-If so, I'll need to get some more info from you.: 如果這樣的話，我將需要得到更多關於您的資訊。
+Are you currently enrolled in the Coursera course associated with this lesson?: 您正在參與與本課程相關的Coursera課程嗎?
+Would you like me to notify Coursera that you've completed this lesson?: 您希望我通知Coursera您已完成這節課了嗎？
+If so, I'll need to get some more info from you.: 如果是的話，我將需要得到您的更多資訊。
 'Yes': 是的
 'No': 不
-Maybe later: 以後再說吧
-I'll try to tell Coursera you've completed this lesson now.: 現在我將要嘗試告訴Coursera您已經完成了這節課。
-You skipped too many questions! You'll need to complete: 您跳過了太多的問題！您需要再次完成
-this lesson again if you'd like to receive credit. Please: 這節課如果您需要接受認證的話。
-don't skip more than one question next time.: 下一次請不要跳過超過一個問題
-'I''ve notified Coursera that you have completed ': '我已通知Courera您已經完成了。 '
-I'm sorry, something went wrong with automatic submission.: 我很抱歉，在自動提交的過程中出了點錯誤。
-I'm sorry, something went wrong with establishing connection.: 我很抱歉，在建立連線的時候出了點錯誤。
-To notify Coursera that you have completed this lesson,: 為了通知Coursera您已經完成了本課，
-please upload: 請人工上傳
-to Coursera manually. You may do so by visiting the Programming: 到Coursera. 您或許需要通過訪問
-Assignments page on your course website and selecting the Submit: 在您課程網站上的程式設計任務頁面並選擇相應的swirl
-button next to the appropriate swirl lesson.: 課程旁邊的提交按鈕。
-'I''ve placed the file in the following directory:': 我已經把檔案放到了下面的目錄中：
-Would you like to retry automatic submission or just submit manually?: 您願意重試自動提交還是通過自己手動提交？
+Maybe later: 稍後再說
+I'll try to tell Coursera you've completed this lesson now.: 正在嘗試告訴Coursera您已經完成了這節課。
+You skipped too many questions! : 您跳過了太多的問題！
+You'll need to complete this lesson again if you'd like to receive credit. Please: 如果您需要取得認證的話，請再次完成這節課。
+don't skip more than one question next time.: 請不要跳過超過一個問題。
+'I''ve notified Coursera that you have completed ': '我已通知Courera您完成了本課程。 '
+I'm sorry, something went wrong with automatic submission.: 很抱歉，在自動提交的過程中出了錯誤。
+I'm sorry, something went wrong with establishing connection.: 很抱歉，在建立連線的時候出了錯誤。
+To notify Coursera that you have completed this lesson,: 為了通知Coursera您已經完成了本課程，
+please upload to Coursera manually.: 請您手動上傳到Coursera。
+You may do so by visiting the Programming: 您需要通過訪問
+Assignments page on your course website and selecting the Submit: 在您課程網站上的程式設計任務頁面，並在合適的swirl
+button next to the appropriate swirl lesson.: 課程旁邊選擇提交按鈕。
+'I''ve placed the file in the following directory:': 我已經將檔案放到了下面的目錄中：
+Would you like to retry automatic submission or just submit manually?: 您希望重試自動提交還是通過自己手動提交呢？
 Retry automatic submission: 重試自動提交
 Submit manually: 手動提交
-The first item I need is your Course ID. For example, if the: 我需要的第一件東西是您的CourseID。舉個例子，如果
+The first item I need is your Course ID. For example, if the: 我需要您的CourseID。舉個例子，如果
 homepage for your Coursera course was: 您的Coursera課程主頁是：
-It looks like you entered a web address, which is not what I'm: 看上去您好像是輸入了一個網址，這不是我
-looking for.: 正需要的。
-It looks like you entered a numeric ID, which is not what I'm: 看上去您好像是輸入了一個全是數字的ID，這不是我
-It looks like you entered the Course ID that I used as an: 看上去您好像是輸入了我舉的例子中的 course
-  ID
-example, which is not what I'm looking for.: 這不是我正需要的。
-Instead, I need your Course ID, which is the last: 相反，我需要您的 Course ID，它是
-part of the web address for your Coursera course.: 您的Coursera課程網址最後面的一部分。
+It looks like you entered a web address, which is not what I'm: 您似乎輸入了一個網址，這不是我
+looking for.: 所需要的。
+It looks like you entered a numeric ID, which is not what I'm: 您似乎是輸入了一個全是數字的ID，這不是我
+looking for.: 所需要的。
+It looks like you entered the Course ID that I used as an: 您似乎是輸入了範例中的 course ID，
+example, which is not what I'm looking for.: 這不是我所需要的。
+Instead, I need your Course ID, which is the last: 我需要您的 Course ID，它是
+part of the web address for your Coursera course.: 您的Coursera課程網址中最後面的一部分。
 For example, if the homepage for your Coursera course was: 舉個例子，如果您的Coursera課程主頁是
 '''https://class.coursera.org/rprog-001'',': '''https://class.coursera.org/rprog-001'','
 then your course ID would be 'rprog-001' (without the quotes).: 那麼您的 course ID 會是
   'rprog-001' (去掉引號).
 'Submission login (email): ': '提交通行證 (email): '
 'Submission password: ': '提交密碼： '
-Is the following information correct?: 下面的資訊正確嗎？
+Is the following information correct?: 下面的資訊正確嗎?
 'Course ID: ': 'Course ID: '
 Yes, go ahead!: 是的，繼續！
-No, I need to change something.: 不，我需要做一些修改
+No, I need to change something.: 不，我需要做一些修正。
 Course installed successfully!: 課程安裝成功！
 Course installation failed.: 課程安裝失敗。
-Argument 'course_name' must be surrounded by quotes (i.e. a character string)!: 參數
-  'course_name' 必須包含在引號中（即一個字元串）！
+Argument 'course_name' must be surrounded by quotes (i.e. a character string)!: 參數'course_name' 必須包含在引號中（即為一個字元串）！
 Argument 'dev' must be either TRUE or FALSE!: 參數 'dev' 一定是 TRUE 或 FALSE ！
-Please enter a valid name for a mirror. ('github' or 'bitbucket'): 請輸入一個有效的映象名字 ('github'
-  或 'bitbucket')
-To access swirl courses in development on Bitbucket go to https://bitbucket.org/swirldevmirror/swirl_misc: 在
-  Bitbucket 獲取開發中的 swirl 課程請訪問 https://bitbucket.org/swirldevmirror/swirl_misc
+Please enter a valid name for a mirror. ('github' or 'bitbucket'): 請輸入一個有效的映象名字 ('github'或'bitbucket')
+To access swirl courses in development on Bitbucket go to https://bitbucket.org/swirldevmirror/swirl_misc: 要在Bitbucket 中獲取開發中的 swirl 課程，
+請訪問 https://bitbucket.org/swirldevmirror/swirl_misc
 Course ': 課程 '
 ''' not found in course repository! ': ''' 不在課程庫中！ '
-Make sure you've got the name exactly right, then try again.: 再次確認您輸入了正確的名字，然後重試。
+Make sure you've got the name exactly right, then try again.: 請確認您輸入了正確的名字，然後重試。
 Course uninstalled successfully!: 課程解除安裝成功！
-Course not found!: 課程無法找到！
+Course not found!: 無法找到該課程！
 All courses uninstalled successfully!: 所有的課程都解除安裝成功！
-No courses found!: 找不到課程！
-Argument 'multi' must be either TRUE or FALSE.: 參數 'multi' 必須是 TRUE 或 FALSE.
+No courses found!: 找不到該課程！
+Argument 'multi' must be either TRUE or FALSE.: 參數 'multi' 必須是 TRUE 或 FALSE。
 Argument 'which_course' should only be specified when argument 'multi' is TRUE.: 參數 'which_course' 只在參數 'multi' 為 TRUE 的時候需要指定。
 'Course ': '課程 '
-' not in specified directory. Be careful, course names are case sensitive!': ' 不在指定的目錄中。 請小心, 課程名字區分大小寫!'
+' not in specified directory. Be careful, course names are case sensitive!': ' 不在指定的目錄中。 請確認課程名字的大小寫!'
 Course directory is too large to install: 課程目錄太大，無法安裝
 'ANSWER: ': 'ANSWER: '
 'Yes or No? ': '正確或錯誤？ '
 'yes': 正確
-Type nxt() to continue: 輸入 nxt() 繼續
-'BUG: There are no tests for this question!': 'BUG: 沒有對這個問題進行測試'
-Or, type info() for more options.: 或者, 輸入 info() 瞭解更多選項。
+Type nxt() to continue: 輸入 nxt() 繼續。
+'BUG: There are no tests for this question!': 'BUG: 沒有對這個問題的測試'
+Or, type info() for more options.: 或者輸入 info() 瞭解更多選項。
 Package: 包
 loaded correctly!: 匯入成功!
 This lesson requires the: 本課程需要
-package. Would you like me to install it for you now?: 包。 您願意讓我現在為您安裝嗎？
-Attemping to load lesson dependencies...: 嘗試載入課程依賴項...
-Trying to install package: 嘗試安裝包
+package. Would you like me to install it for you now?: 安裝課程包。 讓我現在為您安裝嗎？
+Attemping to load lesson dependencies...: 嘗試載入課程相依項目...
+Trying to install package: 嘗試安裝課程包。
 now...: 現在...
-Could not install package: 無法安裝包
+Could not install package: 無法安裝課程包。
 ? To begin, you must install a course. I can install a course for you from the internet,
   or I can send you to a web page (https://github.com/swirldev/swirl_courses) which
   will provide course options and directions for installing courses yourself. (If
   you are not connected to the internet, type 0 to exit.)
-: 為了開始，您必須安裝一門課程。我能從網路為您安裝課程，或者我可以發給您一個網頁 (https://github.com/swirldev/swirl_courses)
-  它能給您提供課程選項和自助安裝課程的指南。 (如果您沒有連線網路, 輸入 0 退出。)
-Don't install anything for me. I'll do it myself.: 不要為我安裝任何東西。我將自己完成。
-'Sorry, but I''m unable to fetch ': '抱歉，我現在無法 '
+: 為了開始，您必須安裝一門課程。我能從網路為您安裝課程，或者請您訪問以下網頁 (https://github.com/swirldev/swirl_courses)
+  它能為您提供課程選項和自助安裝課程的指南。 (如果您沒有連線網路, 輸入 0 退出。)
+Don't install anything for me. I'll do it myself.: 不要為我安裝任何東西。我將手動完成。
+'Sorry, but I''m unable to fetch ': '抱歉，我現在無法獲取。'
 ? right now. Are you sure you have an internet connection? If so, would you like to
   try again or visit the course repository for instructions on how to install a course
   manually? Type 0 to exit.
-: 獲取。 您確定您已經接入因特網? 如果是這樣, 您要再試一次還是訪問課程庫瞭解手動安裝課程的說明? 輸入 0 退出。
+: 請您確認是否已經有網路連線。 如果是, 您要再試一次或是訪問課程庫瞭解手動安裝課程的說明? 輸入 0 退出。
 Try again!: 重試！
 Send me to the course repository for manual installation.: 帶我去課程庫瞭解手動安裝。
 OK. I'm opening the swirl course respository in your browser.: 好的。我正在通過您的瀏覽器開啟 swirl
   課程庫。
 OK. I'm opening the swirl courses web page in your browser.: 好的。我正在通過您的瀏覽器開啟 swirl
-  課程網站
+  課程網站。
 ? Welcome to swirl! Please sign in. If you've been here before, use the same name
   as you did then. If you are new, call yourself something unique.
-: 歡迎使用swirl！請登入。如果您以前到過這裡，那就使用跟之前一樣的名字。如果您是新來的，給自己取個獨一無二的名字。
+: 歡迎使用swirl！請登入。如果您以前到過這裡，那就請沿用跟之前一樣的名字。如果您是新來的，給自己取個獨一無二的名字。
 'What shall I call you? ': '我該怎麼稱呼您？ '
 'Thanks, ': '謝謝， '
 ? . Let's cover a couple of quick housekeeping items before we begin our first lesson.
   First of all, you should know that when you see '...', that means you should press
   Enter when you are done reading and ready to continue.
-: . 再開始我們第一節課前，我們先瞭解一些基本的實用項目。 第一關, 您應該要知道當您看到 '...', 那意味著當您結束閱讀並準備繼續的時候應該按下回車鍵。
-'...  <-- That''s your cue to press Enter to continue': '...  <-- 就是暗示您要按 enter 鍵繼續'
+: . 再開始我們第一節課前，我們先瞭解一些基本的實用項目。 第一關, 當您看到 '...', 代表當您結束閱讀並準備繼續時，請按下Enter鍵。
+'...  <-- That''s your cue to press Enter to continue': '...  <-- 就是暗示您按 enter 鍵繼續'
 ? Also, when you see 'ANSWER:', the R prompt (>), or when you are asked to select
   from a list, that means it's your turn to enter a response, then press Enter to
   continue.
-: 而且, 當您看到 'ANSWER:' 也就是R提示符 (>) 時， , 或者當要求您從列表中選擇時，這意味著輪到您輸入Enter繼續。
+: 當您看到 'ANSWER:' 也就是R 的提示符 (>) 時，或者當要求您從列表中選擇時，這也意味著您需要輸入Enter繼續。
 Continue.: 繼續。
 Proceed.: 接著做.
 Let's get going!: 讓我們保持前進!
-Select 1, 2, or 3 and press Enter: 選擇1，2，或者3 並按下Enter
+Select 1, 2, or 3 and press Enter: 選擇1、2、或者3 並按下Enter
 ? You can exit swirl and return to the R prompt (>) at any time by pressing the Esc
   key. If you are already at the prompt, type bye() to exit and save your progress.
   When you exit properly, you'll see a short message letting know you've done so.
