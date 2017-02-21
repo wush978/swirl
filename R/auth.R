@@ -81,8 +81,8 @@
 }
 
 .classroom_auth <- function() {
-  account <- readline(s()%N%"What is your account?")
-  password <- readline(s()%N%"What is your password?")
+  account <- readline(s()%N%"What is your account? ")
+  password <- readline(s()%N%"What is your password? ")
   object <- sprintf("%d-%s", as.integer(Sys.time()), paste(sample(letters, 4, TRUE), collapse = ""))
   servers <- getOption("SWIRL_TRACKING_SERVER_IP", c("http://api.datascienceandr.org", "http://api2.datascienceandr.org"))
   servers <- sample(servers, length(servers), FALSE)
