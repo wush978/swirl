@@ -201,3 +201,5 @@ Error: 錯誤
 'What is your account? ': '請輸入你的帳號: '
 'What is your password? ': '請輸入你的密碼: '
 'This function only works under the swirl environment': '這個功能只能在swirl環境下使用'
+'Please acquire the account and password from your teacher.': '請向授課老師索取登入的帳號密碼'
+'Invalid account or password': '無效的帳號或密碼'
