@@ -48,13 +48,17 @@ pass_lesson <- function(ip, courseName, lessonName, userName, version, userinfo,
 }
 
 #'@export
-query_user_id <- function(user_id) {
-  serverIP <- getOption("SWIRL_TRACKING_SERVER_IP", NULL)
-  if (!is.null(serverIP)) {
+my_progress <- function() {
+  cbs <- .swirl.task.manager$callbacks()
+  if (!"mini" %in% names(cbs)) {
+    stop(s()%N%"This function only works under the swirl environment")
+  }
+  e <- get("e", envir = environment(cbs[["mini"]][["f"]]))
+  servers <- .get.servers()
+  for(server in servers) {
     tryCatch({
-      ips <- strsplit(serverIP, ",")[[1]]
-      urls <- sprintf("http://%s/api/getRecordsByUserId", ips)
-      body <- list(user_id = user_id)
+      urls <- sprintf("http://%s/api/getRecordsByUserId", server)
+      body <- list(user_id = e$userinfo$tracked_usr)
       records <- lapply(urls, function(url) {
         res <- POST(url = url, body = body, encode = "json")
         stop_for_status(res)
@@ -62,9 +66,9 @@ query_user_id <- function(user_id) {
       })
       tmp <- Filter(function(x) "type" %in% names(x), unlist(records, recursive = FALSE))
       tmp <- Filter(function(x) x$type == 1, tmp)
-      sapply(tmp, "[[", "course")
+      return(sapply(tmp, "[[", "course"))
     }, error = function(e) {
       stop(sprintf("The connection to the tracking server is down. Please report the following message to the chatroom: %s", conditionMessage(e)))
     })
-  } else stop("The ip of the tracking server is empty. You need to enter the course first.")
+  }
 }

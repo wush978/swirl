@@ -1,3 +1,5 @@
+.swirl.task.manager <- taskCallbackManager()
+
 #' An interactive learning environment for R and statistics.
 #' 
 #' This function presents a choice of course lessons and interactively
@@ -50,7 +52,7 @@ swirl <- function(resume.class="default", ...){
   # hence that environment, which also contains e, persists as long
   # as cb remains registered. Thus e can be used to store infomation
   # between invocations of cb.
-  removeTaskCallback("mini")
+  .swirl.task.manager$remove("mini")
   # e lives here, in the environment created when swirl() is run
   e <- new.env(globalenv())
   # This dummy object of class resume.class "tricks" the S3 system
@@ -71,7 +73,7 @@ swirl <- function(resume.class="default", ...){
     # remains active
     return(resume(e, ...))
   }
-  addTaskCallback(cb, name="mini")
+  .swirl.task.manager$add(cb, name="mini")
   invisible()
 }
 

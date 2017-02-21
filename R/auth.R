@@ -81,25 +81,27 @@
 }
 
 .classroom_auth <- function() {
+  swirl_out(s()%N%"Please acquire the account and password from your teacher.")
   account <- readline(s()%N%"What is your account? ")
   password <- readline(s()%N%"What is your password? ")
   object <- sprintf("%d-%s", as.integer(Sys.time()), paste(sample(letters, 4, TRUE), collapse = ""))
-  servers <- getOption("SWIRL_TRACKING_SERVER_IP", c("http://api.datascienceandr.org", "http://api2.datascienceandr.org"))
-  servers <- sample(servers, length(servers), FALSE)
+  servers <- .get.servers()
   for(server in servers) {
     tryCatch({
       .r <- httr::POST(sprintf("%s/api/classroomAuth", server), body = list(account = account, object = object, hmac = digest::hmac(password, object, algo = "sha256")), encode = "form")
       if (httr::status_code(.r) < 300) {
         userinfo <- list(name = account, tracked_usr = sprintf("classroom:%s", account), usr = account)
       } else {
-        stop(httr::content(.r, type = "text"))
+        stop("Invalid account or password")
       }
       return(userinfo)
     }, error = function(e) {
+      Sys.sleep(1)
+      if (conditionMessage(e) == "Invalid account or password") stop(conditionMessage(e))
       warnings(conditionMessage(e))
     }) 
   }
-  stop("Failed to authenticate with server")
+  stop("Invalid account or password")
 }
 
 .check_email <- function(email) {
