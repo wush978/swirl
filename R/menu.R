@@ -363,7 +363,7 @@ loadLesson.default <- function(e, courseU, lesson){
     serverIP <- getOption("SWIRL_TRACKING_SERVER_IP", NULL)
     if (!is.null(serverIP)) {
       courseVersion <- getOption("SWIRL_COURSE_VERSION", "")
-      enter_lesson(serverIP, courseU, lesson, e$usr, courseVersion)
+      enter_lesson(serverIP, courseU, lesson, e$usr, courseVersion, e$userinfo)
     }
   })
   # Parse content, returning object of class "lesson"

@@ -198,3 +198,5 @@ Type swirl() when you are ready to begin.: 當你準備好開始的時候輸入 
 Hi! Type swirl() when you are ready to begin.: 嗨! 當你準備好開始的時候輸入 swirl()。
 Error: 錯誤
 'Welcome to swirl! Please select where you want to sign in with.': '歡迎使用swirl！請選擇你想要用於登入的服務。'
+'What is your account?': '請輸入你的帳號'
+'What is your password?': '請輸入你的密碼'

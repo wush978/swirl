@@ -46,6 +46,7 @@
     stop(sprintf("Failed to get the valid email from Google"))
   }
   userinfo$service <- "Google"
+  userinfo$tracked_usr <- paste(userinfo$service, userinfo$sub, sep = ":")
   userinfo$usr <- strsplit(userinfo$email, "@", fixed = TRUE)[[1]][1]
   userinfo
 }
@@ -72,6 +73,7 @@
     } else {
       userinfo$usr <- userinfo$name
     }
+    userinfo$tracked_usr <- paste(userinfo$service, userinfo$id, sep = ":")
     userinfo
   }, finally = {
     if (is.na(.httr_port.env)) Sys.unsetenv("HTTR_SERVER_PORT") else Sys.setenv("HTTR_SERVER_PORT" = .httr_port.env)
@@ -79,7 +81,25 @@
 }
 
 .classroom_auth <- function() {
-  stop("TODO")
+  account <- readline(s()%N%"What is your account?")
+  password <- readline(s()%N%"What is your password?")
+  object <- sprintf("%d-%s", as.integer(Sys.time()), paste(sample(letters, 4, TRUE), collapse = ""))
+  servers <- getOption("SWIRL_TRACKING_SERVER_IP", c("http://api.datascienceandr.org", "http://api2.datascienceandr.org"))
+  servers <- sample(servers, length(servers), FALSE)
+  for(server in servers) {
+    tryCatch({
+      .r <- httr::POST(sprintf("%s/api/classroomAuth", server), body = list(account = account, object = object, hmac = digest::hmac(password, object, algo = "sha256")), encode = "form")
+      if (httr::status_code(.r) < 300) {
+        userinfo <- list(name = account, tracked_usr = sprintf("classroom:%s", account), usr = account)
+      } else {
+        stop(httr::content(.r, type = "text"))
+      }
+      return(userinfo)
+    }, error = function(e) {
+      warnings(conditionMessage(e))
+    }) 
+  }
+  stop("Failed to authenticate with server")
 }
 
 .check_email <- function(email) {
