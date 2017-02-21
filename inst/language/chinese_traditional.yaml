@@ -119,19 +119,19 @@ OK. I'm opening the swirl courses web page in your browser.: 好的。我正在�
 Continue.: 繼續。
 Proceed.: 接著做.
 Let's get going!: 讓我們保持前進!
-Select 1, 2, or 3 and press Enter: 選擇1、2、或者3 並按下Enter
+Select 1, 2, or 3 and press Enter: 選擇1、2、並按下Enter。
 ? You can exit swirl and return to the R prompt (>) at any time by pressing the Esc
   key. If you are already at the prompt, type bye() to exit and save your progress.
   When you exit properly, you'll see a short message letting know you've done so.
-: 您可以通過按下Esc鍵在任何時候退出 swirl 並回到 R 提示符(>)。 如果您已經在提示符狀態, 輸入 bye() 能退出並儲存您的進度。 當你正確地退出的時候,
-  你會看到一條讓你知道你已經退出了的短訊息。
+: 您可以通過按下Esc鍵在任何時候退出 swirl ，並回到 R 提示符(>)。 如果您已經在提示符狀態, 輸入 bye() 能退出並儲存您的進度。 當你正確地退出的時候,
+  你會看到一條短訊息，讓你知道你已經成功退出了。
 Let's get started!: 讓我們開始吧!
-Would you like to continue with one of these lessons?: 你願意從下面課程之一繼續嗎?
+Would you like to continue with one of these lessons?: 你願意從下面課程擇一繼續嗎?
 No. Let me start something new.: 不，讓我開始一項新的課程
-Please choose a course, or type 0 to exit swirl.: 請選擇一門課程，或輸入 0 退出 swirl
+Please choose a course, or type 0 to exit swirl.: 請選擇一門課程，或輸入 0 退出 swirl。
 Take me to the swirl course repository!: 帶我去 swirl 課程庫！
-Please choose a lesson, or type 0 to return to course menu.: 請選擇一節課，或輸入 0 回到課程目錄
-Please provide arguments so that appropriate options can be set.: 請提供參數，以便可以設定適當的選項。
+Please choose a lesson, or type 0 to return to course menu.: 請選擇一節課，或輸入 0 回到課程目錄。
+Please provide arguments so that appropriate options can be set.: 請提供參數，以便設定適當的選項。
 Options set successfully!: 選項設定成功!
 Option name ': 選項名 '
 ''' not found.': ''' 未找到。'
@@ -139,56 +139,54 @@ Option ': 選項 '
 ''' deleted successfully!': ''' 刪除成功!'
 You got it!: 你猜對了!
 Nice work!: 做的不錯!
-Keep up the great work!: 做得好，保持住!
+Keep up the great work!: 做得好，請保持!
 You are doing so well!: 你做的太棒了!
-You nailed it! Good job!: 你搞定了! 做的不錯!
+You nailed it! Good job!: 你搞定了! 做得不錯!
 You're the best!: 你是最棒的!
-You are amazing!: 你令人吃驚!
+You are amazing!: 你做得很棒!
 Great job!: 做的太棒了!
-You are quite good my friend!: 你相當好，我的朋友!
-You got it right!: 你把它弄對了!
-That's correct!: 這是正確的!
-You are really on a roll!: 你真的很在狀態!
-Excellent job!: 卓越的工作!
-That's a job well done!: 這真是個完美完成的工作!
+You are quite good my friend!: 朋友，你做得相當好!
+You got it right!: 你正確地完成了!
+That's correct!: 正確!
+You are really on a roll!: 你成功地上腳步!
+Excellent job!: 做得太好了!
+That's a job well done!: 你完美的完成了!
 Almost! Try again.: 幾乎正確了!再試一次。
-You almost had it, but not quite. Try again.: 你幾乎就要通過了, 但還差一點。再試一次。
+You almost had it, but not quite. Try again.: 你幾乎就要通過了，還差一點。再試一次。
 Give it another try.: 再嘗試一次。
 Not quite! Try again.: 不全對!再試一次
-Not exactly. Give it another go.: 不完全。再試試看看？
-That's not exactly what I'm looking for. Try again.: 這不全是我所期待的。再試一次。
-Nice try, but that's not exactly what I was hoping for. Try again.: 不錯的嘗試，但那不全是我期待的。再試一遍。
+Not exactly. Give it another go.: 不完全正確。請再試試看!
+That's not exactly what I'm looking for. Try again.: 這不全然是我所期待的答案。再試一次。
+Nice try, but that's not exactly what I was hoping for. Try again.: 不錯的嘗試，但不全然是我期待的答案。再試一遍。
 Keep trying!: 保持嘗試！
-That's not the answer I was looking for, but try again.: 這不是我需要的答案，還是再試一遍吧。
-Not quite right, but keep trying.: 不完全正確，繼續嘗試。
-You're close...I can feel it! Try it again.: 你很接近了...我能感受到它! 再試一次。
+That's not the answer I was looking for, but try again.: 這不是我需要的答案，再試一遍吧。
+Not quite right, but keep trying.: 不全然正確，繼續嘗試。
+You're close...I can feel it! Try it again.: 我能感受到你很接近了! 再試一次。
 Correct!: 正確!
 Incorrect. Please try again.: 不正確。請再試一遍。
-Please enter a valid username.: 請輸入一個有效的使用者名
+Please enter a valid username.: 請輸入一個有效的使用者名稱。
 'Deleted progress for user: ': '刪除使用者的進度： '
 'Could not find account for user: ': '無法找到使用者的賬戶: '
 Leaving swirl now. Type swirl() to resume.: 正在離開 swirl。輸入 swirl() 繼續。
 'When you are at the R prompt (>):': '當你在R提示符時 (>):'
--- Typing skip() allows you to skip the current question.: -- 輸入 skip() 允許你跳過當前的問題。
+-- Typing skip() allows you to skip the current question.: -- 輸入 skip() 幫助你跳過當前的問題。
 -- Typing play() lets you experiment with R on your own; swirl will ignore what you do...: --
-  輸入 play() 允許你按自己的意願測試R; swirl 會忽略掉你做的一切...
--- UNTIL you type nxt() which will regain swirl's attention.: -- 直到你輸入 nxt() ，它會讓你重新得到
-  swirl 的注意。
--- Typing bye() causes swirl to exit. Your progress will be saved.: -- 輸入 bye() 會導致
-  swirl 退出。你的進度將會被儲存。
+  輸入 play() 可以幫助你按自己的意願進行R的測試; swirl 會忽略掉你在這部分做的嘗試...
+-- UNTIL you type nxt() which will regain swirl's attention.: -- 直到你輸入 nxt() ，它會幫助你重新得到swirl 的注意。
+-- Typing bye() causes swirl to exit. Your progress will be saved.: -- 輸入 bye() 會使swirl 退出。你的進度將會被儲存。
 -- Typing main() returns you to swirl's main menu.: -- 輸入 main() 使你返回到 swirl 的主選單。
 -- Typing info() displays these options again.: -- 輸入 info() 會再次顯示以上的資訊。
 Resuming lesson...: 繼續課程...
 Entering the following correct answer for you...: 輸入下列回答中正確的一項...
 Returning to the main menu...: 返回主選單...
-Lesson complete! Exiting swirl now...: 本節課完成了！正在退出swirl!
-You've reached the end of this lesson! Returning to the main menu...: 你已經到達了本課程的結束！正在返回主選單...
-I just sourced the following script, which demonstrates one possible solution.: 我剛剛執行了下面的指令碼,它會演示一個可能的解決方案。
-Press Enter when you are ready to continue...: 當你準備繼續時輸入Enter...
+Lesson complete! Exiting swirl now...: 本節課完成了！正在退出swirl...
+You've reached the end of this lesson! Returning to the main menu...: 你已經在本課程的終點了！正在返回主選單...
+I just sourced the following script, which demonstrates one possible solution.: 我剛剛執行了以下指令碼,它會演示一個可能的解決方案。
+Press Enter when you are ready to continue...: 當你準備繼續時，請輸入Enter...
 Hi! I see that you have some variables saved in your: 嗨! 我看到你有很多變數儲存在你的
-workspace. To keep things running smoothly, I recommend you clean up: workspace。 為了能夠順利進行，我推薦你清空workspace
-before starting swirl.: 在開始swirl前。
-Type ls() to see a list of the variables in your workspace.: 輸入 ls() 可以檢視你的workspace儲存的變數列表
-Then, type rm(list=ls()) to clear your workspace.: 然後, 輸入 rm(list=ls()) 以便清空你的workspace
-Type swirl() when you are ready to begin.: 當你準備好開始的時候輸入 swirl()。
-Hi! Type swirl() when you are ready to begin.: 嗨! 當你準備好開始的時候輸入 swirl()。
+workspace. To keep things running smoothly, I recommend you clean up: workspace。 為了能夠順利進行，我建議你在開始swirl前清空workspace
+before starting swirl.: 。
+Type ls() to see a list of the variables in your workspace.: 輸入 ls() 檢視你的workspace儲存的變數列表。
+Then, type rm(list=ls()) to clear your workspace.: 然後, 輸入 rm(list=ls()) 以清空你的workspace。
+Type swirl() when you are ready to begin.: 當你準備好開始的時候，輸入 swirl()。
+Hi! Type swirl() when you are ready to begin.: 嗨! 當你準備好開始的時候。輸入 swirl()。
