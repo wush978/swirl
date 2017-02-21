@@ -440,7 +440,7 @@ resume.default <- function(e, ...){
           .path <- tail(strsplit(e$path, "/")[[1]], 2)
           courseU <- .path[1]
           lesson <- .path[2]
-          pass_lesson(serverIP, courseU, lesson, e$usr, courseVersion, e$log)
+          pass_lesson(serverIP, courseU, lesson, e$usr, courseVersion, e$userinfo, e$log)
         }
       })
       # let the user select another course lesson

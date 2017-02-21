@@ -1,12 +1,13 @@
 .tracking_env <- new.env(parent=emptyenv())
 
 #'@importFrom httr POST stop_for_status content
-tracking <- function(ip, courseName, lessonName, userName, version, type, log = list()) {
+tracking <- function(ip, courseName, lessonName, userName, version, type, userinfo = list(), log = list()) {
   body <- list(
     user_id = userName,
     course = sprintf("%s:%s", courseName, lessonName),
     type = type,
     version = version,
+    userinfo = userinfo,
     log = log
   )
   tryCatch({
@@ -38,9 +39,13 @@ tracking <- function(ip, courseName, lessonName, userName, version, type, log = 
   NULL
 }
 
-enter_lesson <- function(ip, courseName, lessonName, userName, version) tracking(ip, courseName, lessonName, userName, version, 0)
+enter_lesson <- function(ip, courseName, lessonName, userName, version, userinfo) {
+  tracking(ip, courseName, lessonName, userinfo$tracked_usr, version, 0, userinfo)
+}
 
-pass_lesson <- function(ip, courseName, lessonName, userName, version, log) tracking(ip, courseName, lessonName, userName, version, 1, log)
+pass_lesson <- function(ip, courseName, lessonName, userName, version, userinfo, log) {
+  tracking(ip, courseName, lessonName, userinfo$tracked_usr, version, 1, userinfo, log)
+}
 
 #'@export
 query_user_id <- function(user_id) {

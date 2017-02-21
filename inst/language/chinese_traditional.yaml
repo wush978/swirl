@@ -196,3 +196,7 @@ Type ls() to see a list of the variables in your workspace.: 輸入 ls() 可以�
 Then, type rm(list=ls()) to clear your workspace.: 然後, 輸入 rm(list=ls()) 以便清空你的workspace
 Type swirl() when you are ready to begin.: 當你準備好開始的時候輸入 swirl()。
 Hi! Type swirl() when you are ready to begin.: 嗨! 當你準備好開始的時候輸入 swirl()。
+Error: 錯誤
+'Welcome to swirl! Please select where you want to sign in with.': '歡迎使用swirl！請選擇你想要用於登入的服務。'
+'What is your account?': '請輸入你的帳號'
+'What is your password?': '請輸入你的密碼'
