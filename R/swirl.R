@@ -52,7 +52,7 @@ swirl <- function(resume.class="default", ...){
   # hence that environment, which also contains e, persists as long
   # as cb remains registered. Thus e can be used to store infomation
   # between invocations of cb.
-  .swirl.task.manager$remove("mini")
+  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(0)
   # e lives here, in the environment created when swirl() is run
   e <- new.env(globalenv())
   # This dummy object of class resume.class "tricks" the S3 system
@@ -97,7 +97,7 @@ swirl <- function(resume.class="default", ...){
 #' | Leaving swirl now. Type swirl() to resume.
 #' }
 bye <- function(){
-  removeTaskCallback("mini")
+  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(0)
   swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
   invisible()
 }
