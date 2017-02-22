@@ -73,7 +73,12 @@ swirl <- function(resume.class="default", ...){
     # remains active
     return(resume(e, ...))
   }
+  .n1 <- getTaskCallbackNames()
   .swirl.task.manager$add(cb, name="mini")
+  .n2 <- getTaskCallbackNames()
+  if (length(setdiff(.n2, .n1)) == 0) {
+    .swirl.task.manager$register(verbose = FALSE)
+  }
   invisible()
 }
 
@@ -97,7 +102,7 @@ swirl <- function(resume.class="default", ...){
 #' | Leaving swirl now. Type swirl() to resume.
 #' }
 bye <- function(){
-  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(0)
+  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(1)
   swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
   invisible()
 }
@@ -255,7 +260,8 @@ resume.default <- function(e, ...){
   args_specification(e, ...)
   
   esc_flag <- TRUE
-  on.exit(if(esc_flag)swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE))
+  # on.exit(if(esc_flag)swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE))
+  on.exit(if(esc_flag) bye())
   # Trap special functions
   if(uses_func("info")(e$expr)[[1]]){
     esc_flag <- FALSE
@@ -377,7 +383,8 @@ resume.default <- function(e, ...){
   temp <- mainMenu(e)
   # If menu returns FALSE, the user wants to exit.
   if(is.logical(temp) && !isTRUE(temp)){
-    swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
+    # swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
+    bye()
     esc_flag <- FALSE # To supress double notification
     return(FALSE)
   }
@@ -449,7 +456,8 @@ resume.default <- function(e, ...){
       temp <- mainMenu(e)
       # if menu returns FALSE, user wants to quit.
       if(is.logical(temp) && !isTRUE(temp)){
-        swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
+        # swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
+        bye()
         esc_flag <- FALSE # to supress double notification
         return(FALSE)
       }
