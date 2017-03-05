@@ -253,7 +253,7 @@ welcome.default <- function(e, ...){
   while(!done) {
     tryCatch({
       swirl_out(s()%N%"Welcome to swirl! Please select where you want to sign in with.")
-      service <- select.list(c("Google", "Facebook", "Classroom"))
+      service <- select.list(c("Google", "Facebook", "Classroom"), graphics = FALSE)
       if (service == "Google") {
         resp <- .google_oauth()
         done <- TRUE
