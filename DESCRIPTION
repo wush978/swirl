@@ -26,8 +26,9 @@ Imports:
     digest,
     tools,
     utils,
-    rappdirs,
-    methods
+    rappdirs(>= 0.5),
+    methods,
+    getPass(>= 0.1-1)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(wrap = FALSE)

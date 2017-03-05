@@ -83,7 +83,7 @@
 .classroom_auth <- function() {
   swirl_out(s()%N%"Please acquire the account and password from your teacher.")
   account <- readline(s()%N%"What is your account? ")
-  password <- readline(s()%N%"What is your password? ")
+  password <- getPass::getPass(s()%N%"What is your password? ")
   object <- sprintf("%d-%s", as.integer(Sys.time()), paste(sample(letters, 4, TRUE), collapse = ""))
   servers <- .get.servers()
   for(server in servers) {
