@@ -1,4 +1,17 @@
 .swirl.task.manager <- taskCallbackManager()
+.SWIRL_CALLBACK_NAME <- "swirl-callback"
+
+.remove_callback <- function() {
+    # removeTaskCallback(.SWIRL_CALLBACK_NAME)
+  browser()
+  if (.SWIRL_CALLBACK_NAME %in% names(.swirl.task.manager$callbacks())) {
+    .i <- which(.SWIRL_CALLBACK_NAME == names(.swirl.task.manager$callbacks()))
+    .swirl.task.manager$remove(.i)
+  }
+  # if (.SWIRL_CALLBACK_NAME %in% getTaskCallbackNames()) {
+  #   removeTaskCallback(.SWIRL_CALLBACK_NAME)
+  # }
+}
 
 #' An interactive learning environment for R and statistics.
 #' 
@@ -52,7 +65,10 @@ swirl <- function(resume.class="default", ...){
   # hence that environment, which also contains e, persists as long
   # as cb remains registered. Thus e can be used to store infomation
   # between invocations of cb.
-  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(0)
+  # if ("mini" %in% names(.swirl.task.manager$callbacks())) {
+  #   .swirl.task.manager$remove(0)
+  # }
+  .remove_callback()
   # e lives here, in the environment created when swirl() is run
   e <- new.env(globalenv())
   # This dummy object of class resume.class "tricks" the S3 system
@@ -73,11 +89,10 @@ swirl <- function(resume.class="default", ...){
     # remains active
     return(resume(e, ...))
   }
-  .n1 <- getTaskCallbackNames()
-  .swirl.task.manager$add(cb, name="mini")
-  .n2 <- getTaskCallbackNames()
-  if (length(setdiff(.n2, .n1)) == 0) {
-    .swirl.task.manager$register(verbose = FALSE)
+  .swirl.task.manager$add(cb, name=.SWIRL_CALLBACK_NAME, register = FALSE)
+  if (!.SWIRL_CALLBACK_NAME %in% getTaskCallbackNames()) {
+    .swirl.task.manager$register(name = .SWIRL_CALLBACK_NAME, verbose = FALSE)
+    # removeTaskCallback(.SWIRL_CALLBACK_NAME)
   }
   invisible()
 }
@@ -102,7 +117,7 @@ swirl <- function(resume.class="default", ...){
 #' | Leaving swirl now. Type swirl() to resume.
 #' }
 bye <- function(){
-  if ("mini" %in% names(.swirl.task.manager$callbacks())) .swirl.task.manager$remove(1)
+  .remove_callback()
   swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE)
   invisible()
 }
@@ -261,7 +276,9 @@ resume.default <- function(e, ...){
   
   esc_flag <- TRUE
   # on.exit(if(esc_flag)swirl_out(s()%N%"Leaving swirl now. Type swirl() to resume.", skip_after=TRUE))
-  on.exit(if(esc_flag) bye())
+  on.exit(if(esc_flag) {
+    bye()
+  })
   # Trap special functions
   if(uses_func("info")(e$expr)[[1]]){
     esc_flag <- FALSE
