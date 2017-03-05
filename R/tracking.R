@@ -47,18 +47,23 @@ pass_lesson <- function(ip, courseName, lessonName, userName, version, userinfo,
   tracking(ip, courseName, lessonName, userinfo$tracked_usr, version, 1, userinfo, log)
 }
 
-#'@export
-my_progress <- function() {
+.get_tracked_usr <- function() {
   cbs <- .swirl.task.manager$callbacks()
-  if (!"mini" %in% names(cbs)) {
+  if (!.SWIRL_CALLBACK_NAME %in% names(cbs)) {
     stop(s()%N%"This function only works under the swirl environment")
   }
-  e <- get("e", envir = environment(cbs[["mini"]][["f"]]))
+  e <- get("e", envir = environment(cbs[[.SWIRL_CALLBACK_NAME]][["f"]]))
+  e$userinfo$tracked_usr
+}
+
+#'@export
+my_progress <- function() {
   servers <- .get.servers()
+  user_id <- .get_tracked_usr()
   for(server in servers) {
     tryCatch({
       urls <- sprintf("http://%s/api/getRecordsByUserId", server)
-      body <- list(user_id = e$userinfo$tracked_usr)
+      body <- list(user_id = user_id)
       records <- lapply(urls, function(url) {
         res <- POST(url = url, body = body, encode = "json")
         stop_for_status(res)
