@@ -3,7 +3,6 @@
 
 .remove_callback <- function() {
     # removeTaskCallback(.SWIRL_CALLBACK_NAME)
-  browser()
   if (.SWIRL_CALLBACK_NAME %in% names(.swirl.task.manager$callbacks())) {
     .i <- which(.SWIRL_CALLBACK_NAME == names(.swirl.task.manager$callbacks()))
     .swirl.task.manager$remove(.i)

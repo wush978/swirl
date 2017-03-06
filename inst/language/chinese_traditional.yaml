@@ -195,3 +195,4 @@ Error: 錯誤
 'This function only works under the swirl environment': '這個功能只能在swirl環境下使用'
 'Please acquire the account and password from your teacher.': '請向授課老師索取登入的帳號密碼'
 'Invalid account or password': '無效的帳號或密碼'
+'This function only serves cooperated students': '只有有專案合作的學生才能使用本功能'

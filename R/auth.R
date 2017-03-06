@@ -80,10 +80,24 @@
   })
 }
 
+.swirl_classroom_auth_cache <- new.env()
+.get_classroom_password <- function(account) {
+  if (exists(account, envir = .swirl_classroom_auth_cache)) {
+    password <- get(account, envir = .swirl_classroom_auth_cache)
+  } else {
+    password <- getPass::getPass(s()%N%"What is your password? ")
+    assign(account, password, envir = .swirl_classroom_auth_cache)
+  }
+  password
+}
+.remove_classroom_password <- function(account) {
+  rm(list = account, envir = .swirl_classroom_auth_cache)
+}
+
 .classroom_auth <- function() {
   swirl_out(s()%N%"Please acquire the account and password from your teacher.")
   account <- readline(s()%N%"What is your account? ")
-  password <- getPass::getPass(s()%N%"What is your password? ")
+  password <- .get_classroom_password(account)
   object <- sprintf("%d-%s", as.integer(Sys.time()), paste(sample(letters, 4, TRUE), collapse = ""))
   servers <- .get.servers()
   for(server in servers) {
@@ -92,6 +106,7 @@
       if (httr::status_code(.r) < 300) {
         userinfo <- list(name = account, tracked_usr = sprintf("classroom:%s", account), usr = account)
       } else {
+        .remove_classroom_password(account)
         stop("Invalid account or password")
       }
       return(userinfo)
@@ -101,6 +116,7 @@
       warnings(conditionMessage(e))
     }) 
   }
+  .remove_classroom_password(account)
   stop("Invalid account or password")
 }
 
