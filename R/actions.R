@@ -27,7 +27,7 @@ do_reset.default <- function(e) {
 do_submit.default <- function(e) {
   e$playing <- FALSE
   # Get contents from user's submitted script
-  e$script_contents <- readLines(e$script_temp_path, warn = FALSE)
+  e$script_contents <- readLines(e$script_temp_path, warn = FALSE, encoding = "UTF-8")
   # Save expr to e
   e$expr <- try(parse(text = e$script_contents), silent = TRUE)
   swirl_out(s()%N%"Sourcing your script...", skip_after = TRUE)

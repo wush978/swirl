@@ -318,7 +318,7 @@ resume.default <- function(e, ...){
       correct_script_path <- e$correct_script_temp_path
       if(file.exists(correct_script_path)) {
         # Get contents of the correct script
-        e$script_contents <- readLines(correct_script_path, warn = FALSE)
+        e$script_contents <- readLines(correct_script_path, warn = FALSE, encoding = "UTF-8")
         # Save expr to e
         e$expr <- try(parse(text = e$script_contents), silent = TRUE)
         # Source the correct script

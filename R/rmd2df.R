@@ -205,7 +205,7 @@ collapse_choices <- function(choices) {
 }
 
 rmd2df <- function(rmd_path) {
-  my_rmd <- readLines(rmd_path, warn=FALSE)
+  my_rmd <- readLines(rmd_path, warn=FALSE, encoding = "UTF-8")
   # Get metadata from yaml - set as lesson attributes below
   meta <- get_yaml(my_rmd)
   cleaned <- clean_me(my_rmd)
