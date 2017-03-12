@@ -191,7 +191,6 @@ Hi! Type swirl() when you are ready to begin.: 嗨! 當你準備好開始的時�
 Error: 錯誤
 'Welcome to swirl! Please select where you want to sign in with.': '歡迎使用swirl！請選擇你想要用於登入的服務。'
 'What is your account? ': '請輸入你的帳號: '
-'What is your password? ': '請輸入你的密碼: '
 'This function only works under the swirl environment': '這個功能只能在swirl環境下使用'
 'Please acquire the account and password from your teacher.': '請向授課老師索取登入的帳號密碼'
 'Invalid account or password': '無效的帳號或密碼'
