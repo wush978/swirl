@@ -173,7 +173,7 @@ complete_part <- function(e) {
       correct_script_path <- file.path(e$path, "scripts", 
                                        correct_script_name)
       if(file.exists(correct_script_path)) {
-        try(source(correct_script_path))
+        try(source(correct_script_path, encoding = "UTF-8"))
       } else {
         stop("Correct script not found at ", correct_script_path)
       }

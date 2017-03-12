@@ -340,8 +340,8 @@ loadLesson.default <- function(e, courseU, lesson){
   initLessonFile <- file.path(lesPath,"initLesson.R")
   ## initialize lesson
   if(file.exists(initCourseFile) | file.exists(initLessonFile)) local({
-    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE)
-    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE)
+    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE, encoding = "UTF-8")
+    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE, encoding = "UTF-8")
     # NOTE: the order of the next two statements is important,
     # since a reference to e$snapshot will cause e to appear in
     # local environment.
@@ -385,8 +385,8 @@ restoreUserProgress.default <- function(e, selection){
   initLessonFile <- file.path(lesPath,"initLesson.R")
   # initf <- file.path(e$path, "initLesson.R")
   if(file.exists(initCourseFile) | file.exists(initLessonFile)) local({
-    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE)
-    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE)
+    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE, encoding = "UTF-8")
+    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE, encoding = "UTF-8")
     xfer(environment(), globalenv())
   })
   # transfer swirl's "official" list of variables to the
@@ -404,7 +404,7 @@ restoreUserProgress.default <- function(e, selection){
   if(is.null(figs) || length(figs) == 0)return()
   figs <- figs[!is.na(figs)]
   figs <- file.path(e$path, figs)
-  lapply(figs, function(x)source(file=x, local=TRUE))
+  lapply(figs, function(x) source(file=x, local=TRUE, encoding = "UTF-8"))
 }
 
 loadInstructions.default <- function(e){

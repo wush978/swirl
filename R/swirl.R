@@ -322,7 +322,7 @@ resume.default <- function(e, ...){
         # Save expr to e
         e$expr <- try(parse(text = e$script_contents), silent = TRUE)
         # Source the correct script
-        try(source(correct_script_path))
+        try(source(correct_script_path, encoding = "UTF-8"))
         # Inform the user and open the correct script
         swirl_out(s()%N%"I just sourced the following script, which demonstrates one possible solution.",
                   skip_after=TRUE)
