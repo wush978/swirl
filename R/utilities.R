@@ -119,7 +119,7 @@ cleanEnv <- function(snapshot){
 loadDependencies <- function(lesson_dir) {
   depends <- file.path(lesson_dir, "dependson.txt")
   if(file.exists(depends)) {
-    packages_as_chars <- setdiff(readLines(depends, warn=FALSE), "")
+    packages_as_chars <- setdiff(readLines(depends, warn=FALSE, encoding = "UTF-8"), "")
     # If the dependson file is empty, then proceed with lesson
     if(length(packages_as_chars) == 0) return(TRUE)
     swirl_out(s()%N%"Attempting to load lesson dependencies...")
@@ -173,7 +173,7 @@ complete_part <- function(e) {
       correct_script_path <- file.path(e$path, "scripts", 
                                        correct_script_name)
       if(file.exists(correct_script_path)) {
-        try(source(correct_script_path))
+        try(source(correct_script_path, encoding = "UTF-8"))
       } else {
         stop("Correct script not found at ", correct_script_path)
       }

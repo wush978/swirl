@@ -99,7 +99,7 @@ check_strings <- function(){
   ##langs <- "english"
   
   for(i in list.files("R", pattern = "\\.R$")){
-    source_code <- readLines(file.path("R", i), warn = FALSE)
+    source_code <- readLines(file.path("R", i), warn = FALSE, encoding = "UTF-8")
     strings <- grep("s\\(\\)%N%", source_code)
     for(j in strings){
       for(l in langs){

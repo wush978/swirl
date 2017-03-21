@@ -318,11 +318,11 @@ resume.default <- function(e, ...){
       correct_script_path <- e$correct_script_temp_path
       if(file.exists(correct_script_path)) {
         # Get contents of the correct script
-        e$script_contents <- readLines(correct_script_path, warn = FALSE)
+        e$script_contents <- readLines(correct_script_path, warn = FALSE, encoding = "UTF-8")
         # Save expr to e
         e$expr <- try(parse(text = e$script_contents), silent = TRUE)
         # Source the correct script
-        try(source(correct_script_path))
+        try(source(correct_script_path, encoding = "UTF-8"))
         # Inform the user and open the correct script
         swirl_out(s()%N%"I just sourced the following script, which demonstrates one possible solution.",
                   skip_after=TRUE)

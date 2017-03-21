@@ -61,7 +61,11 @@ mainMenu.default <- function(e){
       # If no courses are available, offer to install one
       if(length(coursesU)==0){
         suggestions <- yaml.load_file(file.path(find.package("swirl"), "Courses", "suggested_courses.yaml"))
-        choices <- sapply(suggestions, function(x)paste0(x$Course, ": ", x$Description))
+        choices <- sapply(suggestions, function(x) {
+          retval <- paste0(x$Course, ": ", x$Description)
+          Encoding(retval) <- "UTF-8"
+          retval
+        })
         swirl_out(s()%N%"To begin, you must install a course. I can install a course for you from the internet, or I can send you to a web page (https://github.com/swirldev/swirl_courses) which will provide course options and directions for installing courses yourself. (If you are not connected to the internet, type 0 to exit.)")
         choices <- c(choices, s()%N%"Don't install anything for me. I'll do it myself.")
         choice <- select.list(choices, graphics=FALSE)
@@ -340,8 +344,8 @@ loadLesson.default <- function(e, courseU, lesson){
   initLessonFile <- file.path(lesPath,"initLesson.R")
   ## initialize lesson
   if(file.exists(initCourseFile) | file.exists(initLessonFile)) local({
-    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE)
-    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE)
+    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE, encoding = "UTF-8")
+    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE, encoding = "UTF-8")
     # NOTE: the order of the next two statements is important,
     # since a reference to e$snapshot will cause e to appear in
     # local environment.
@@ -385,8 +389,8 @@ restoreUserProgress.default <- function(e, selection){
   initLessonFile <- file.path(lesPath,"initLesson.R")
   # initf <- file.path(e$path, "initLesson.R")
   if(file.exists(initCourseFile) | file.exists(initLessonFile)) local({
-    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE)
-    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE)
+    if (file.exists(initCourseFile)) source(initCourseFile, local=TRUE, encoding = "UTF-8")
+    if (file.exists(initLessonFile)) source(initLessonFile, local=TRUE, encoding = "UTF-8")
     xfer(environment(), globalenv())
   })
   # transfer swirl's "official" list of variables to the
@@ -404,7 +408,7 @@ restoreUserProgress.default <- function(e, selection){
   if(is.null(figs) || length(figs) == 0)return()
   figs <- figs[!is.na(figs)]
   figs <- file.path(e$path, figs)
-  lapply(figs, function(x)source(file=x, local=TRUE))
+  lapply(figs, function(x) source(file=x, local=TRUE, encoding = "UTF-8"))
 }
 
 loadInstructions.default <- function(e){
