@@ -52,12 +52,12 @@
 }
 
 .facebook_oauth <- function() {
-  # .httr_port.env <- Sys.getenv("HTTR_SERVER_PORT", NA)
+  .httr_port.env <- Sys.getenv("HTTR_SERVER_PORT", NA)
   tryCatch({
-    # .httr_port <- Sys.getenv("HTTR_SERVER_PORT", "1410")
-    # if (substring(.httr_port, nchar(.httr_port), nchar(.httr_port)) != "/") {
-    #   Sys.setenv("HTTR_SERVER_PORT" = paste0(.httr_port, "/"))
-    # }
+    .httr_port <- Sys.getenv("HTTR_SERVER_PORT", "1410")
+    if (substring(.httr_port, nchar(.httr_port), nchar(.httr_port)) != "/") {
+      Sys.setenv("HTTR_SERVER_PORT" = paste0(.httr_port, "/"))
+    }
     DSR_KEY <- "1562521020444332"
     DSR_SECRET <- "d9fcaae2fd5ce90ee404509e1ab6fc3d"
     dsr_app <- httr::oauth_app("datascienceandr", key = DSR_KEY, secret = DSR_SECRET)
@@ -76,7 +76,7 @@
     userinfo$tracked_usr <- paste(userinfo$service, userinfo$id, sep = ":")
     userinfo
   }, finally = {
-    # if (is.na(.httr_port.env)) Sys.unsetenv("HTTR_SERVER_PORT") else Sys.setenv("HTTR_SERVER_PORT" = .httr_port.env)
+    if (is.na(.httr_port.env)) Sys.unsetenv("HTTR_SERVER_PORT") else Sys.setenv("HTTR_SERVER_PORT" = .httr_port.env)
   })
 }
 
