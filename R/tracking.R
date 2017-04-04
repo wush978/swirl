@@ -13,7 +13,7 @@ tracking <- function(ip, courseName, lessonName, userName, version, type, userin
   tryCatch({
     # get the last vailable ip or pass
     ips <- strsplit(ip, ",")[[1]]
-    ips <- c(ips, paste(ips, "3000", sep = ":"))
+    # ips <- c(ips, paste(ips, "3000", sep = ":"))
     last_ip <- unique(append(.tracking_env[[ip]], sample(ips, length(ips))))
     is_tracked <- FALSE
     .tracking_env$error_msg <- c()
