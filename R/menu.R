@@ -233,6 +233,7 @@ mainMenu.default <- function(e){
                       correct = NULL,
                       attempt = NULL,
                       skipped = NULL,
+                      multi_answer = character(0),
                       datetime = NULL)
       }
 
