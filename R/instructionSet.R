@@ -174,6 +174,9 @@ testResponse.default <- function(current.row, e){
   if(correct){
     if(TRUE){
       e$log$correct <- c(e$log$correct, TRUE)
+      if (e$current.row$Class == "mult_question") {
+        e$log$multi_answer <- append(e$log$multi_answer, e$val)
+      }
     }  
     
     mes <- praise()
