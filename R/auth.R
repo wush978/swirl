@@ -82,7 +82,7 @@
 
 .swirl_classroom_auth_cache <- new.env()
 .get_classroom_password <- function(account) {
-  if (exists(account, envir = .swirl_classroom_auth_cache)) {
+  if (exists(account, envir = .swirl_classroom_auth_cache, inherits = FALSE)) {
     password <- get(account, envir = .swirl_classroom_auth_cache)
   } else {
     password <- getPass::getPass(s()%N%"What is your password? ")
