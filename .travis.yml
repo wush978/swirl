@@ -17,7 +17,7 @@ script:
   - ls -d1 swirl*tar.gz | xargs R CMD check 
   - ls -d1 swirl*tar.gz | xargs R CMD INSTALL
   - git clone https://github.com/wush978/DataScienceAndR.git -b course /tmp/course
-  - cd /tmp/course && Rscript .test_course.R push
+  - cd /tmp/course && (echo "source('https://raw.githubusercontent.com/wush978/R/gh-pages/.test_course.R')" | R --no-save --args push)
 
 addons:
   apt:
