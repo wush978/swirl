@@ -53,19 +53,13 @@
 
 .facebook_oauth <- function() {
   .httr_port.env <- Sys.getenv("HTTR_SERVER_PORT", NA)
+  DSR_KEY <- "1562521020444332"
+  DSR_SECRET <- "d9fcaae2fd5ce90ee404509e1ab6fc3d"
   tryCatch({
-    .httr_port <- Sys.getenv("HTTR_SERVER_PORT", "1410")
-    if (substring(.httr_port, nchar(.httr_port), nchar(.httr_port)) != "/") {
-      Sys.setenv("HTTR_SERVER_PORT" = paste0(.httr_port, "/"))
-    }
-    DSR_KEY <- "1562521020444332"
-    DSR_SECRET <- "d9fcaae2fd5ce90ee404509e1ab6fc3d"
     dsr_app <- httr::oauth_app("datascienceandr", key = DSR_KEY, secret = DSR_SECRET)
     dsr_token <- httr::oauth2.0_token(httr::oauth_endpoints("facebook"), dsr_app, scope = c("public_profile", "email"), cache = FALSE)
     .r <- httr::GET(sprintf("https://graph.facebook.com/me?fields=id,name,first_name,last_name,age_range,gender,email&access_token=%s", dsr_token$credentials$access_token))
-    if (httr::status_code(.r) >= 300) {
-      stop(sprintf("Failed to get the user info from Facebook"))
-    }
+    stopifnot(httr::status_code(.r) < 300)
     userinfo <- httr::content(.r, "parsed")
     userinfo$service <- "Facebook"
     if (.check_email(userinfo$email)) {
@@ -75,8 +69,30 @@
     }
     userinfo$tracked_usr <- paste(userinfo$service, userinfo$id, sep = ":")
     userinfo
-  }, finally = {
-    if (is.na(.httr_port.env)) Sys.unsetenv("HTTR_SERVER_PORT") else Sys.setenv("HTTR_SERVER_PORT" = .httr_port.env)
+  }, error = function(e) {
+    tryCatch({
+      .httr_port <- Sys.getenv("HTTR_SERVER_PORT", "1410")
+      if (substring(.httr_port, nchar(.httr_port), nchar(.httr_port)) != "/") {
+        Sys.setenv("HTTR_SERVER_PORT" = paste0(.httr_port, "/"))
+      }
+      dsr_app <- httr::oauth_app("datascienceandr", key = DSR_KEY, secret = DSR_SECRET)
+      dsr_token <- httr::oauth2.0_token(httr::oauth_endpoints("facebook"), dsr_app, scope = c("public_profile", "email"), cache = FALSE)
+      .r <- httr::GET(sprintf("https://graph.facebook.com/me?fields=id,name,first_name,last_name,age_range,gender,email&access_token=%s", dsr_token$credentials$access_token))
+      if (httr::status_code(.r) >= 300) {
+        stop(sprintf("Failed to get the user info from Facebook"))
+      }
+      userinfo <- httr::content(.r, "parsed")
+      userinfo$service <- "Facebook"
+      if (.check_email(userinfo$email)) {
+        userinfo$usr <- strsplit(userinfo$email, "@", fixed = TRUE)[[1]][1]
+      } else {
+        userinfo$usr <- userinfo$name
+      }
+      userinfo$tracked_usr <- paste(userinfo$service, userinfo$id, sep = ":")
+      userinfo
+    }, finally = {
+      if (is.na(.httr_port.env)) Sys.unsetenv("HTTR_SERVER_PORT") else Sys.setenv("HTTR_SERVER_PORT" = .httr_port.env)
+    })
   })
 }
 
