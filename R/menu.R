@@ -226,15 +226,19 @@ mainMenu.default <- function(e){
       
       # Create log
       if(TRUE){
-        e$log <- list(user = e$usr, 
-                      course_name = attr(e$les,"course_name"),
-                      lesson_name = attr(e$les,"lesson_name"),
-                      question_number = NULL,
-                      correct = NULL,
-                      attempt = NULL,
-                      skipped = NULL,
-                      multi_answer = character(0),
-                      datetime = NULL)
+        lesPath <- file.path(courseDir(e), attr(e$les,"course_name"), attr(e$les,"lesson_name"))
+        e$log <- list(
+          user = e$usr, 
+          course_name = attr(e$les,"course_name"),
+          lesson_name = attr(e$les,"lesson_name"),
+          question_number = NULL,
+          correct = NULL,
+          attempt = NULL,
+          skipped = NULL,
+          multi_answer = character(0),
+          datetime = NULL,
+          source_md5 = tools::md5sum(file.path(lesPath, find_lesson(lesPath)))
+          )
       }
 
       # create the file
