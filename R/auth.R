@@ -128,8 +128,6 @@
       return(userinfo)
     }, error = function(e) {
       Sys.sleep(1)
-      if (conditionMessage(e) == "Invalid account or password") stop(conditionMessage(e))
-      warnings(conditionMessage(e))
     }) 
   }
   .remove_classroom_password(account)
