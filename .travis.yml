@@ -5,12 +5,9 @@ r:
   - oldrel
   - release
   - devel
-env:
-  - PKG_REPOS="http://wush978.github.io/R"
-  - PKG_REPOS="https://cloud.r-project.org"
 
 before_install:
-  - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
+  - Rscript -e "source('https://wush978.github.io/R/repos_as_release.R')"
 
 script:
   - R CMD build .
