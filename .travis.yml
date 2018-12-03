@@ -7,8 +7,7 @@ r:
   - devel
 
 before_install:
-  - Rscript -e "install.packages('pvm', repos = 'https://wush978.github.io/R', type = 'source')"
-  - Rscript -e ". <- sprintf(\"options(repos = c(CRAN = '%s'))\", sprintf('https://cran.microsoft.com/snapshot/%s', pvm::R.release.dates[sprintf('%s.%s', R.version['major'], R.version['minor'])] + 7));write(., file = '~/.Rprofile')"
+  - Rscript -e "source('https://wush978.github.io/R/repos_as_release.R')"
 
 script:
   - R CMD build .
