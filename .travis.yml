@@ -5,12 +5,10 @@ r:
   - oldrel
   - release
   - devel
-env:
-  - PKG_REPOS="http://wush978.github.io/R"
-  - PKG_REPOS="https://cloud.r-project.org"
 
 before_install:
-  - echo "options(repos = c('CRAN' = Sys.getenv('PKG_REPOS')))" > ~/.Rprofile
+  - Rscript -e "install.packages('pvm', repos = 'https://wush978.github.io/R', type = 'source')"
+  - Rscript -e ". <- sprintf(\"options(repos = c(CRAN = '%s'))\", sprintf('https://cran.microsoft.com/snapshot/%s', pvm::R.release.dates[sprintf('%s.%s', R.version['major'], R.version['minor'])] + 7));write(., file = '~/.Rprofile')"
 
 script:
   - R CMD build .
